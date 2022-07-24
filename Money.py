@@ -435,8 +435,26 @@ class MainApp(MDApp):
             Welcome.text = self.LangWords["Night"] + self.UserName
         Total.text = f"Total: {self.TotalMoney}"
     def WatchCurrent(self, x):
-        self.showWaring(str(x))
-        print(x)
+        if x["Title"][1] == True:
+            tempTitle = self.LangWords["Add"]
+        elif x["Title"][1] == False:
+            tempTitle = self.LangWords["Subtract"]
+        else:
+            tempTitle = self.LangWords["Preference"]
+        tempCategory = self.LangWords["All"] if x["Category"] == False else f'{self.LangWords["NameCard"]}: {x["Category"][0]}\n{self.LangWords["MoneyBeforeAction"]}: {x["Category"][1]}'
+        if x["Title"][1] == False:
+            tempMoney = -float(x["Amount"])
+        else:
+            tempMoney = float(x["Amount"])
+        self.showWaring(f'''
+        ID: {x["ID"]}
+        {self.LangWords["Name"]}: {x["Name"]}
+        {self.LangWords["Description"]}: {x["Descripcion"]}
+        {f'{self.LangWords["Category"]}: {tempCategory}' if tempCategory == self.LangWords["All"] else tempCategory}
+        {self.LangWords["Amount"]}: {tempMoney}
+        {self.LangWords["Title"]}: {tempTitle}
+        {self.LangWords["Date"]}: {x["PrettyDate"]}, {x["PrettyTime"]}
+        ''')
         self.CurrentMenu.dismiss()
     def ReloadCardCategorys(self):
         try:

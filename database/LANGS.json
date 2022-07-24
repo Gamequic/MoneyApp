@@ -38,7 +38,8 @@
         "All": "Todos",
         "Settings": "Configuraciones",
         "Title": "Titulo",
-        "SeeCurrents": "Ver acciones"
+        "SeeCurrents": "Ver acciones",
+        "MoneyBeforeAction": "Dinero antes de la accion"
     },
 "ENG": 
     {
@@ -79,6 +80,7 @@
         "All": "All",
         "Settings": "Settings",
         "Title": "Title",
-        "SeeCurrents": "Watch currents"
+        "SeeCurrents": "Watch currents",
+        "MoneyBeforeAction": "Money before action"
     }
 }
