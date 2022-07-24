@@ -18,7 +18,6 @@ from kivymd.uix.label import MDLabel
 from kivymd.uix.datatables import MDDataTable
 import time
 import json
-import os
 
 #Fechas y numeros de colores
 def GetActualTime():
@@ -437,7 +436,6 @@ class MainApp(MDApp):
         Total.text = f"Total: {self.TotalMoney}"
     def WatchCurrent(self, x):
         self.showWaring(str(x))
-        os.mkdir("/storage/emulated/0")
         print(x)
         self.CurrentMenu.dismiss()
     def ReloadCardCategorys(self):
