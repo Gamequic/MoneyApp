@@ -433,7 +433,7 @@ class MainApp(MDApp):
             Welcome.text = self.LangWords["Afternoon"] + self.UserName
         else:
             Welcome.text = self.LangWords["Night"] + self.UserName
-        Total.text = f"Total: {self.TotalMoney}"
+        Total.text = "Error exageradamente urgente, ayuda"
     def WatchCurrent(self, x):
         if x["Title"][1] == True:
             tempTitle = self.LangWords["Add"]
