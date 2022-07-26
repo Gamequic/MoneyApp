@@ -39,7 +39,8 @@
         "Settings": "Configuraciones",
         "Title": "Titulo",
         "SeeCurrents": "Ver acciones",
-        "MoneyBeforeAction": "Dinero antes de la accion"
+        "MoneyBeforeAction": "Dinero antes de la accion",
+        "DarkMode": "Modo oscuro"
     },
 "ENG": 
     {
@@ -81,6 +82,7 @@
         "Settings": "Settings",
         "Title": "Title",
         "SeeCurrents": "Watch currents",
-        "MoneyBeforeAction": "Money before action"
+        "MoneyBeforeAction": "Money before action",
+        "DarkMode": "Dark mode"
     }
 }

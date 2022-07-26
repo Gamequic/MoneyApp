@@ -722,5 +722,13 @@ class MainApp(MDApp):
         if len(RowData) == 1:
             RowData.append(("", ""))
         self.EditTitleTable.row_data = RowData
+    #Settings screen
+    def darkmodeF(self, active):
+        if active:
+            DarkMode = "Dark"
+        else:
+            DarkMode = "Light"
+        SaveData({"DarkMode": DarkMode}, self.Setting)
+        self.theme_cls.theme_style = DarkMode
 App = MainApp()
 App.run()
