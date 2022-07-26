@@ -175,7 +175,7 @@ class CategoryCard(MDMyCard, ButtonBehavior, TouchBehavior):
         App.RemoveCategoryCard(ID)
         self.Menu.dismiss()
 
-#ScreenMAnager
+#ScreenManager
 class ScreenManagement(ScreenManager):
     def __init__(self, **kwargs):
         super(ScreenManagement, self).__init__(**kwargs)
@@ -378,7 +378,7 @@ class MainApp(MDApp):
     def showWaring(self, text):
         dialog = MDDialog(
             text=text,
-            radius=[20, 7, 20, 7],
+            radius=[75, 20, 75, 20],
         )
         dialog.open()
     def ConfirmData(self, ListData, DataType):
@@ -446,7 +446,7 @@ class MainApp(MDApp):
             Welcome.text = self.LangWords["Afternoon"] + self.UserName
         else:
             Welcome.text = self.LangWords["Night"] + self.UserName
-        Total.text = f"Total: {self.TotalMoney}"
+        Total.text = f"Total:\n{self.TotalMoney}"
     def WatchCurrent(self, x):
         if x["Title"][1] == True:
             tempTitle = self.LangWords["Add"]

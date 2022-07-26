@@ -79,12 +79,14 @@
                 do_scroll_x: True
                 do_scroll_y: False
                 MyBoxLayout:
+                    padding: 0
                     orientation: 'horizontal'
                     size_hint_x: None
                     height: self.minimum_height
                     width: self.minimum_width
                     id:scroll
         MDMyCard:
+            size_hint_y: 1.25
             padding: 15
             spacing: 15
             orientation: "vertical"
@@ -98,9 +100,12 @@
         MyBoxLayout:
             padding: 0
             size_hint: 1, None
-            height: 400
+            height: 425
             orientation: 'horizontal'
             MDMyCard:
+                ripple_behavior: True
+                size_hint_x: None
+                width: 400
                 MDMyLabel:
                     id: money
             MDMyCard:
@@ -165,9 +170,12 @@
                     text: app.LangWords["Add"]
                     on_release: app.MoneyEditTopics.open()
         MDMyCard:
+            padding: 15
+            spacing: 15
             id: datatable
         MDMyCard:
-            size_hint_y: 0.25
+            size_hint_y: None
+            height: 425
             orientation: 'horizontal'
             MyBoxLayout:
                 orientation: 'vertical'
