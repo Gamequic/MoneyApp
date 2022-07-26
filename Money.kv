@@ -42,6 +42,7 @@
     orientation: 'vertical'
 <MyMDDropDownItem@MDDropDownItem>:
     size_hint: None, None
+    pos_hint: {'center_x': .5, 'center_y': .5}
 <MyMDCheckBox@MDCheckbox>:
     size_hint: None, None
     size: "48dp", "48dp"
@@ -176,18 +177,16 @@
         MDMyCard:
             size_hint_y: None
             height: 425
-            orientation: 'horizontal'
-            MyBoxLayout:
-                orientation: 'vertical'
-                MDMyButtton:
-                    text: app.LangWords["AddTheme"]
-                    on_release: app.AddTheme()
-                MDMyButtton:
-                    text: app.LangWords["DeleteTheme"]
-                    on_release: app.RemoveTheme()
-                MDMyButtton:
-                    text: app.LangWords["Cancel"]
-                    on_release: app.changeToScreen("main_screen", "right")
+            orientation: 'vertical'
+            MDMyButtton:
+                text: app.LangWords["AddTheme"]
+                on_release: app.AddTheme()
+            MDMyButtton:
+                text: app.LangWords["DeleteTheme"]
+                on_release: app.RemoveTheme()
+            MDMyButtton:
+                text: app.LangWords["Cancel"]
+                on_release: app.changeToScreen("main_screen", "right")
 <RegristerAction>:
     Backgroud:
     MyBoxLayout:
@@ -202,6 +201,7 @@
                 multiline: True
                 hint_text: app.LangWords["Description"]
             MyBoxLayout:
+                padding: 0
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                 orientation: 'horizontal'
                 MDMyMDTextField:
@@ -209,39 +209,42 @@
                     size_hint_x: 0.2
                     hint_text: app.LangWords["Amount"] + "(0)"
                 MDBasicLabel:
-                    size_hint: 1,None
+                    size_hint: None ,None
                     text: ":"
                 MyBoxLayout:
                     orientation: 'vertical'
                     MyBoxLayout:
+                        spacing: 0
+                        padding: 0
                         orientation: 'horizontal'
                         MDBasicLabel:
-                            size_hint: 1,None
+#                            size_hint: 1,None
                             text: app.LangWords["Title"]
                         MDBasicLabel:
-                            size_hint: 1,None
+#                            size_hint: None, None
                             text: ":"
                         MyMDDropDownItem:
                             id: drop_item
-                            pos_hint: {'center_x': .5, 'center_y': .5}
                             text: app.LangWords["Other"]
                             on_release: app.MoneyTopics.open()
                     MDSeparator:
                     MyBoxLayout:
+                        spacing: 0
+                        padding: 0
                         orientation: 'horizontal'
                         MDBasicLabel:
-                            size_hint: 1,None
+#                            size_hint: 1,None
                             text: app.LangWords["Category"]
                         MDBasicLabel:
-                            size_hint: 1,None
+#                            size_hint: None, None
                             text: ":"
                         MyMDDropDownItem:
                             id: drop_item_category
-                            pos_hint: {'center_x': .5, 'center_y': .5}
                             text: app.LangWords["All"]
                             on_release: app.MoneyCategorys.open()
         MDMyCard:
-            size_hint_y: 0.25
+            height: 285
+            size_hint_y: None
             orientation: 'vertical'
             MDMyButtton:
                 text: app.LangWords["DoAction"]
@@ -273,7 +276,6 @@
                     text: ":"
                 MyMDDropDownItem:
                     id: drop_item
-                    pos_hint: {'center_x': .5, 'center_y': .5}
                     on_release: app.LangsMenu.open()
         MDMyCard:
             size_hint_y: 0.25

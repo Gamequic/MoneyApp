@@ -204,7 +204,7 @@ class SettingsScreen(MDScreen):
     pass
 
 Builder.load_file("Money.kv")
-
+print((425/3))
 class MainApp(MDApp):
     dialog = None
     title = "Money"
