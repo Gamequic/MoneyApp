@@ -218,10 +218,8 @@
                         padding: 0
                         orientation: 'horizontal'
                         MDBasicLabel:
-#                            size_hint: 1,None
                             text: app.LangWords["Title"]
                         MDBasicLabel:
-#                            size_hint: None, None
                             text: ":"
                         MyMDDropDownItem:
                             id: drop_item
@@ -233,10 +231,8 @@
                         padding: 0
                         orientation: 'horizontal'
                         MDBasicLabel:
-#                            size_hint: 1,None
                             text: app.LangWords["Category"]
                         MDBasicLabel:
-#                            size_hint: None, None
                             text: ":"
                         MyMDDropDownItem:
                             id: drop_item_category
@@ -259,26 +255,33 @@
         MDMyCard:
             orientation: 'vertical'
             MyBoxLayout:
+                spacing: 0
+                padding: 0
                 orientation: 'horizontal'
                 MDBasicLabel:
-                    size_hint: 1,None
+                    #size_hint: None, 1
+                    width: 500
                     text: app.LangWords["DarkMode"]
                 MyMDCheckBox:
                     id:checkbox
                     on_press: app.darkmodeF(self.active)
+            MDSeparator:
             MyBoxLayout:
+                spacing: 0
+                padding: 0
                 orientation: 'horizontal'
                 MDBasicLabel:
-                    size_hint: 1,None
+                    #size_hint: None, 1
                     text: app.LangWords["Lang"]
                 MDBasicLabel:
-                    size_hint: None,None
+                    #size_hint: None,None
                     text: ":"
                 MyMDDropDownItem:
                     id: drop_item
                     on_release: app.LangsMenu.open()
         MDMyCard:
-            size_hint_y: 0.25
+            height: 145
+            size_hint_y: None
             orientation: 'vertical'
             MDMyButtton:
                 text: app.LangWords["Cancel"]
