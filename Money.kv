@@ -110,7 +110,7 @@
                         text: app.LangWords["RegistrerAction"]
                         on_release: app.changeToScreen("registrer_action")
                     MDMyButtton:
-                        text: "Settings"
+                        text: app.LangWords["Settings"]
                         on_release: app.changeToScreen("Settings")
 <CreateCategory>:
     Backgroud:
@@ -199,30 +199,31 @@
                     size_hint_x: 0.2
                     hint_text: app.LangWords["Amount"] + "(0)"
                 MDBasicLabel:
-                    size_hint: None,None
+                    size_hint: 1,None
                     text: ":"
                 MyBoxLayout:
                     orientation: 'vertical'
                     MyBoxLayout:
                         orientation: 'horizontal'
                         MDBasicLabel:
-                            size_hint: None,None
+                            size_hint: 1,None
                             text: app.LangWords["Title"]
                         MDBasicLabel:
-                            size_hint: None,None
+                            size_hint: 1,None
                             text: ":"
                         MyMDDropDownItem:
                             id: drop_item
                             pos_hint: {'center_x': .5, 'center_y': .5}
                             text: app.LangWords["Other"]
                             on_release: app.MoneyTopics.open()
+                    MDSeparator:
                     MyBoxLayout:
                         orientation: 'horizontal'
                         MDBasicLabel:
-                            size_hint: None,None
+                            size_hint: 1,None
                             text: app.LangWords["Category"]
                         MDBasicLabel:
-                            size_hint: None,None
+                            size_hint: 1,None
                             text: ":"
                         MyMDDropDownItem:
                             id: drop_item_category
@@ -247,9 +248,23 @@
             MyBoxLayout:
                 orientation: 'horizontal'
                 MDBasicLabel:
+                    size_hint: 1,None
                     text: app.LangWords["DarkMode"]
                 MyMDCheckBox:
+                    id:checkbox
                     on_press: app.darkmodeF(self.active)
+            MyBoxLayout:
+                orientation: 'horizontal'
+                MDBasicLabel:
+                    size_hint: 1,None
+                    text: app.LangWords["Lang"]
+                MDBasicLabel:
+                    size_hint: None,None
+                    text: ":"
+                MyMDDropDownItem:
+                    id: drop_item
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    on_release: app.LangsMenu.open()
         MDMyCard:
             size_hint_y: 0.25
             orientation: 'vertical'

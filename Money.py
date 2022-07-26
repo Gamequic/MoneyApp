@@ -101,7 +101,6 @@ except:
     Lang = "ENG"
     SaveData({"Lang": Lang}, Setting)
 LangWords = GetData(Lang, "database/LANGS.json")
-del Lang
 
 #Widgets
 class MDMyButtton(MDFillRoundFlatButton):
@@ -209,8 +208,9 @@ class MainApp(MDApp):
     dialog = None
     title = "Money"
     def build(self):
-        global LangWords, Setting
+        global LangWords, Setting, Lang
         self.LangWords = LangWords
+        self.Lang = Lang
         #ScreemManager
         self.sm = ScreenManagement()
         self.sm.add_widget(WelcomeScreen(name='login_screen'))
@@ -218,7 +218,7 @@ class MainApp(MDApp):
         self.sm.add_widget(CreateCategory(name="create_category", on_pre_enter=self.CreateCategoryEnter))
         self.sm.add_widget(RegristerAction(name="registrer_action", on_pre_enter=self.RegristerActionEnter))
         self.sm.add_widget(RegristerThemes(name="registrer_theme", on_pre_enter=self.RegristerThemesEnter))
-        self.sm.add_widget(SettingsScreen(name="Settings"))
+        self.sm.add_widget(SettingsScreen(name="Settings", on_pre_enter=self.SettingsScreenEnter))
 
         self.Creator = True
 
@@ -291,6 +291,18 @@ class MainApp(MDApp):
             width_mult=4,
         )
         self.menu_items_current = []
+        menu_langs = []
+        for i in (("English", "ENG"), ("Español", "ESP")):
+            menu_langs.append({
+                "text": i[0],
+                "viewclass": "OneLineListItem",
+                "on_release": lambda x=i: self.SetLang(x),
+            })
+        self.LangsMenu = MDDropdownMenu(
+            caller=self.sm.get_screen("Settings").ids.drop_item,
+            items=menu_langs,
+            width_mult=4,
+        )
 
         #Datatable
         rowsNumAmount = 25
@@ -723,6 +735,20 @@ class MainApp(MDApp):
             RowData.append(("", ""))
         self.EditTitleTable.row_data = RowData
     #Settings screen
+    def SettingsScreenEnter(self, instance=""):
+        #Load Darkmode
+        if self.theme_cls.theme_style == "Light":
+            self.sm.get_screen("Settings").ids.checkbox.active = False
+        else:
+            self.sm.get_screen("Settings").ids.checkbox.active = True
+        
+        #Load lang
+        self.sm.get_screen("Settings").ids.drop_item.text = self.Lang
+    def SetLang(self, lang):
+        SaveData({"Lang": lang[1]}, self.Setting)
+        self.Lang = lang[1]
+        self.showWaring(self.LangWords["RestartNeed"])
+        self.LangsMenu.dismiss()
     def darkmodeF(self, active):
         if active:
             DarkMode = "Dark"

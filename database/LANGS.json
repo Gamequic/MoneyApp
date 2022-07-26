@@ -40,7 +40,9 @@
         "Title": "Titulo",
         "SeeCurrents": "Ver acciones",
         "MoneyBeforeAction": "Dinero antes de la accion",
-        "DarkMode": "Modo oscuro"
+        "DarkMode": "Modo oscuro",
+        "Lang": "Lenguaje",
+        "RestartNeed": "Es necesario reiniciar para aplicar cambios"
     },
 "ENG": 
     {
@@ -83,6 +85,8 @@
         "Title": "Title",
         "SeeCurrents": "Watch currents",
         "MoneyBeforeAction": "Money before action",
-        "DarkMode": "Dark mode"
+        "DarkMode": "Dark mode",
+        "Lang": "Language",
+        "RestartNeed": "Reestart is need"
     }
 }
