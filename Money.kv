@@ -73,6 +73,7 @@
             markup: True
         MyBoxLayout:
             orientation: 'horizontal'
+            padding: 0
             ScrollView:
                 size: self.size
                 do_scroll_x: True
@@ -84,6 +85,8 @@
                     width: self.minimum_width
                     id:scroll
         MDMyCard:
+            padding: 15
+            spacing: 15
             orientation: "vertical"
             BoxLayout:
                 id: datatable
@@ -93,25 +96,24 @@
                 text: app.LangWords["SeeCurrents"]
                 on_release: app.CurrentMenu.open()
         MyBoxLayout:
-            size_hint_y: 0.35
+            padding: 0
+            size_hint: 1, None
+            height: 400
             orientation: 'horizontal'
             MDMyCard:
                 MDMyLabel:
                     id: money
             MDMyCard:
                 orientation: 'vertical'
-                MyBoxLayout:
-                    padding: 0
-                    orientation: 'vertical'
-                    MDMyButtton:
-                        text: app.LangWords["RegistrerThemes"]
-                        on_release: app.changeToScreen("registrer_theme")
-                    MDMyButtton:
-                        text: app.LangWords["RegistrerAction"]
-                        on_release: app.changeToScreen("registrer_action")
-                    MDMyButtton:
-                        text: app.LangWords["Settings"]
-                        on_release: app.changeToScreen("Settings")
+                MDMyButtton:
+                    text: app.LangWords["RegistrerThemes"]
+                    on_release: app.changeToScreen("registrer_theme")
+                MDMyButtton:
+                    text: app.LangWords["RegistrerAction"]
+                    on_release: app.changeToScreen("registrer_action")
+                MDMyButtton:
+                    text: app.LangWords["Settings"]
+                    on_release: app.changeToScreen("Settings")
 <CreateCategory>:
     Backgroud:
     MyBoxLayout:

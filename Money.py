@@ -112,16 +112,16 @@ class MDMyButtton(MDFillRoundFlatButton):
 class MyBoxLayout(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.padding= 10
-        self.spacing= 10
+        self.padding= 50
+        self.spacing= 30
 class MDMyCard(MDCard, RoundedRectangularElevationBehavior):
     text = StringProperty()
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.pos_hint= {'center_x': 0.5, 'center_y': 0.5}
         self.elevation= 15
-        self.padding= 5
-        self.spacing= 5
+        self.padding= 50
+        self.spacing= 30
         self.radius= [25]
 class MDBasicLabel(MDLabel):
     def __init__(self, **kwargs):
@@ -162,6 +162,7 @@ class CategoryCard(MDMyCard, ButtonBehavior, TouchBehavior):
         self.orientation = "vertical"
         self.size_hint= (None, 1)
         self.width = 350
+        self.ripple_behavior = True
         self.add_widget(MDBasicLabel(text=self.CategoryName))
         self.add_widget(MDBasicLabel(text=self.Percentage))
         self.add_widget(MDBasicLabel(text=self.Amount))
