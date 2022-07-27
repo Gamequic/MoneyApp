@@ -742,6 +742,7 @@ class MainApp(MDApp):
             self.sm.get_screen("Settings").ids.checkbox.active = False
         else:
             self.sm.get_screen("Settings").ids.checkbox.active = True
+        print(self.sm.get_screen("Settings").ids.circle.pos)
         
         #Load lang
         self.sm.get_screen("Settings").ids.drop_item.text = self.Lang

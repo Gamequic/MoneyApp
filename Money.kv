@@ -51,7 +51,7 @@
     Backgroud:
     MDMyCard:
         size_hint: None, None
-        size: 750, 450
+        size: 750, 600
         orientation: 'vertical'
         MyBoxLayout:
             pos_hint: {'center_x': 0.5, 'center_y': 0.8}
@@ -148,8 +148,9 @@
                     Color:
                         rgb: 0, 0, 1
                     Ellipse:
-                        pos: (root.width/2)-(root.width/4)/2, (root.height/2)-(root.width/4)/2  #Ola
-                        size: (root.width/4), (root.width/4)
+                        id: circle
+                        pos: (root.width/2)-(root.width/2)/2, (root.height/2)-(root.width/2)/2
+                        size: (root.width/2), (root.width/2)
                         angle_start: 0
                         angle_end: 360
         MDMyCard:
