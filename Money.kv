@@ -140,14 +140,26 @@
                 step: 1
             MDMyLabel:
                 id: info
-        MDMyCard:
-            orientation: 'horizontal'
             MyBoxLayout:
-                orientation: 'horizontal'
-                id: buttons
-                MDMyButtton:
-                    text: app.LangWords["Cancel"]
-                    on_release: app.changeToScreen("main_screen", "right")
+                orientation: 'vertical'
+                spacing: 0
+                padding: 0
+                canvas:
+                    Color:
+                        rgb: 0, 0, 1
+                    Ellipse:
+                        pos: (root.width/2)-(root.width/4)/2, (root.height/2)-(root.width/4)/2  #Ola
+                        size: (root.width/4), (root.width/4)
+                        angle_start: 0
+                        angle_end: 360
+        MDMyCard:
+            size_hint_y: None
+            height: 145
+            orientation: 'horizontal'
+            id: buttons
+            MDMyButtton:
+                text: app.LangWords["Cancel"]
+                on_release: app.changeToScreen("main_screen", "right")
 <RegristerThemes>:
     Backgroud:
     MyBoxLayout:
