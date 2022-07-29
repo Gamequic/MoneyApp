@@ -5,6 +5,7 @@ from kivy.metrics import dp
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.core.window import Window
 from kivy.base import EventLoop
+from kivy.graphics import Ellipse, Color
 from kivymd.uix.screen import MDScreen
 from kivymd.app import MDApp
 from kivy.uix.boxlayout import BoxLayout
@@ -358,6 +359,7 @@ class MainApp(MDApp):
             text= self.LangWords["EditCategory"]
         )
         self.EditorButton.bind(on_release=self.ModifyCardCategory)
+
         return self.sm
     def on_start(self):
         try:
@@ -575,6 +577,13 @@ class MainApp(MDApp):
         self.sm.get_screen("create_category").ids.percentage.value = int(self.Categorys[int(self.IDCARD)][1])
         self.changeToScreen("create_category")
     def RemoveCategoryCard(self, ID):
+        #Quitarlo al total
+        MoneyCategory = self.Categorys[int(ID)][2]
+        SaveData({"Total": (self.TotalMoney - float(MoneyCategory))}, self.Database)
+        self.TotalMoney = self.TotalMoney - float(MoneyCategory)
+        self.sm.get_screen("main_screen").ids.money.text = f"Total:\n{self.TotalMoney}"
+
+        #Borrar lo de categoria
         del self.Categorys[int(ID)]
         SaveData({"Categorys": self.Categorys}, self.Database)
         self.ReloadCardCategorys()
@@ -694,8 +703,6 @@ class MainApp(MDApp):
                 "on_release": lambda x=Action: self.WatchCurrent(x),
             })
             self.CurrentMenu.items = self.menu_items_current
-    def UnmakeLastAction(self):
-        pass
     #RegistrerThemes
     def RegristerThemesEnter(self, instance=""):
         self.ReloadMainTopis()
@@ -742,7 +749,6 @@ class MainApp(MDApp):
             self.sm.get_screen("Settings").ids.checkbox.active = False
         else:
             self.sm.get_screen("Settings").ids.checkbox.active = True
-        print(self.sm.get_screen("Settings").ids.circle.pos)
         
         #Load lang
         self.sm.get_screen("Settings").ids.drop_item.text = self.Lang
